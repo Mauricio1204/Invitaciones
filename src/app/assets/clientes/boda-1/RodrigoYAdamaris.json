@@ -1,0 +1,16 @@
+{
+  "id": "RodrigoYAdamaris",
+  "titulo": "Juan & Paula",
+  "fecha": "30 de noviembre de 2025",
+  "hora": "4:00 PM",
+  "lugar": "Hacienda Los Encinos",
+  "direccion": "Carretera Nacional km 12, Monterrey, NL",
+  "mensaje": "Nos encantaría contar con tu presencia en nuestro gran día.",
+  "cancion": "/assets/music/vals.mp3",
+  "galeria": [
+    "/assets/imgs/juan-y-paula/foto1.jpg",
+    "/assets/imgs/juan-y-paula/foto2.jpg",
+    "/assets/imgs/juan-y-paula/foto3.jpg"
+  ],
+  "whatsapp": "8123456789"
+}
