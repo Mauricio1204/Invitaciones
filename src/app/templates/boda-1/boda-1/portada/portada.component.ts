@@ -18,6 +18,8 @@ export class PortadaComponent implements OnInit {
       this.datos = data;
       this.playAudio();
     });
+    //hola
+    
   }
 
   playAudio() {
