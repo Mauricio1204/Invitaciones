@@ -1,7 +1,8 @@
-<div class="portada">
-  <h1>{{ datos?.titulo }}</h1>
-  <p>{{ datos?.fecha }} - {{ datos?.lugar }}</p>
-    <a [routerLink]="['/boda-1', datos?.id, 'galeria']">Ver Galería</a>
+<div class="portada-contenedor">
+  <div class="sobre" [class.abierto]="isOpen" (click)="abrirSobre()">
+    <div class="tapa"></div>
+    <div class="cuerpo">
+      <div class="liston"></div>
+    </div>
+  </div>
 </div>
-
-

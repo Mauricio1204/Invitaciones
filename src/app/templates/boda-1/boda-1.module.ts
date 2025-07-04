@@ -8,7 +8,8 @@ import { Boda1RoutingModule } from './boda-1/boda-1-routing.module';
   declarations: [],
   imports: [
     CommonModule,
-    Boda1RoutingModule
+    Boda1RoutingModule,
+    
   ]
 })
 export class Boda1Module { }

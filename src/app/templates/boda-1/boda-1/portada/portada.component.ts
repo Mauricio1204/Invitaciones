@@ -1,40 +1,23 @@
-import { Component ,OnInit} from '@angular/core';
-
-import { RouterModule } from '@angular/router'; // Import RouterModule
-import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-portada',
-  standalone: true,
-  imports: [RouterModule],
+  standalone: true, // <-- Añade esto
+  imports: [CommonModule], // <-- Añade módulos necesarios
   templateUrl: './portada.component.html',
-  styleUrl: './portada.component.css'
+  styleUrls: ['./portada.component.css']
 })
-export class PortadaComponent implements OnInit  {
+export class PortadaComponent {
+  isOpen = false;
 
-   datos: any;
+  constructor(private router: Router) {}
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) {}
-
-  ngOnInit(): void {
-const cliente = this.route.parent?.snapshot.paramMap.get('cliente') || 'default';
-this.http.get(`/assets/clientes/boda-1/${cliente}.json`).subscribe(
-  data => {
-    this.datos = data;
-    this.playAudio();
-  },
-  error => {
-    console.error('Error cargando JSON', error);
+  abrirSobre() {
+    this.isOpen = true;
+    setTimeout(() => {
+      this.router.navigate(['/invitacion']);
+    }, 1000);
   }
-);
-
-  }
-
-  playAudio() {
-    const audio = new Audio(this.datos?.cancion);
-    audio.loop = true;
-    audio.play();
-  }
-
 }
