@@ -20,15 +20,16 @@
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
+          "assets": [
+  {
+    "glob": "**/*",
+    "input": "src/assets",
+    "output": "/assets"
+  }
+],
+"styles": [
+  "src/styles.css"
+],
             "scripts": [],
             "server": "src/main.server.ts",
             "prerender": true,
@@ -84,14 +85,15 @@
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
+  {
+    "glob": "**/*",
+    "input": "src/assets",
+    "output": "/assets"
+  }
+],
+"styles": [
+  "src/styles.css"
+],
             "scripts": []
           }
         }

@@ -1,7 +1,15 @@
-<div class="portada">
-  <h1>{{ datos?.titulo }}</h1>
-  <p>{{ datos?.fecha }} - {{ datos?.lugar }}</p>
-    <a [routerLink]="['/boda-1', datos?.id, 'galeria']">Ver Galería</a>
+<div class="sobre-contenedor">
+  <div class="sobre" [class.abierto]="abierto" (click)="abrirSobre()">
+    <div class="tapa-superior"></div>
+    <div class="cuerpo">
+      <div class="contenido" *ngIf="abierto">
+        <h1>{{ datos?.nombres }}</h1>
+        <p>{{ datos?.fecha }}</p>
+        <p>{{ datos?.lugar }}</p>
+      </div>
+      <div class="lazo" *ngIf="!abierto">
+        <span class="nudo"></span>
+      </div>
+    </div>
+  </div>
 </div>
-
-
