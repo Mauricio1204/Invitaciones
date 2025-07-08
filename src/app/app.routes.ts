@@ -1,13 +1,22 @@
-import { Routes } from '@angular/router';
+import { InvitacionComponent } from './templates/boda-1/boda-1/invitacion/invitacion.component';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
-//export const routes: Routes = [];
+
+import { PortadaComponent } from './templates/boda-1/boda-1/portada/portada.component';
 
 export const routes: Routes = [
-  {
-    path: 'boda-1/:cliente',
-    loadChildren: () =>
-      import('./templates/boda-1/boda-1/boda-1.module').then(m => m.Boda1Module)
-  },
-  { path: '**', redirectTo: 'boda-1/default' }
+  { path: '', component: PortadaComponent },
+  { path: 'invitacion', component: InvitacionComponent },
+  { path: '**', redirectTo: '' },
+
 ];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+
+export class AppRoutingModule { }
 //templates/boda-1/boda-1.module
+

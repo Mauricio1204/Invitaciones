@@ -1,0 +1,104 @@
+.invitacion-contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f9f3f0;
+  padding: 40px 20px;
+  font-family: 'Playfair Display', serif;
+  color: #5a4a42;
+}
+
+.invitacion {
+  background-color: white;
+  width: 100%;
+  max-width: 600px;
+  padding: 40px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.together {
+  font-size: 1rem;
+  letter-spacing: 3px;
+  margin-bottom: 30px;
+  color: #a38b7e;
+}
+
+.nombres {
+  margin: 30px 0;
+}
+
+.nombres h1 {
+  font-size: 2.5rem;
+  margin: 10px 0;
+  font-weight: 400;
+}
+
+.and {
+  font-size: 1.2rem;
+  margin: 5px 0;
+}
+
+.invitan {
+  font-size: 1rem;
+  letter-spacing: 2px;
+  margin: 30px 0;
+  color: #a38b7e;
+}
+
+.fecha {
+  margin: 40px 0;
+  line-height: 1.8;
+}
+
+.fecha p {
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+.reception {
+  margin-top: 20px;
+  font-style: italic;
+}
+
+.detalles {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.detalles h3 {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+  font-weight: 400;
+  border-bottom: 1px solid #e8d5cc;
+  padding-bottom: 10px;
+  display: inline-block;
+}
+
+.seccion {
+  margin: 25px 0;
+}
+
+.seccion h4 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.seccion p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #7a6a62;
+}
+
+@media (max-width: 600px) {
+  .invitacion {
+    padding: 30px 20px;
+  }
+
+  .nombres h1 {
+    font-size: 2rem;
+  }
+}

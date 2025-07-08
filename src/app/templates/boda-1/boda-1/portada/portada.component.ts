@@ -1,57 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-portada',
-  standalone: true,
-  imports: [CommonModule],
+  standalone: true, // <-- Añade esto
+  imports: [CommonModule], // <-- Añade módulos necesarios
   templateUrl: './portada.component.html',
   styleUrls: ['./portada.component.css']
 })
-export class PortadaComponent implements OnInit {
-  datos: any;
-  abierto = false;
-  audio: HTMLAudioElement | null = null;
+export class PortadaComponent {
+  isOpen = false;
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) {}
-
-  ngOnInit(): void {
-    const cliente = this.route.parent?.snapshot.paramMap.get('cliente') || 'default';
-    this.http.get(`assets/clientes/boda-1/${cliente}.json`).subscribe({
-      next: (data) => {
-        this.datos = data;
-        this.playAudio();
-      },
-      error: (err) => {
-        console.error('Error cargando JSON', err);
-        this.loadDefaultData();
-      }
-    });
-  }
-
-  loadDefaultData() {
-    this.datos = {
-      nombres: 'Sara & Joel',
-      fecha: '21.08.19',
-      lugar: 'Ubicación por defecto',
-      cancion: 'assets/music/la_constante.mp3'
-    };
-  }
+  constructor(private router: Router) {}
 
   abrirSobre() {
-    this.abierto = true;
-  }
-
-  playAudio() {
-    if (this.audio) {
-      this.audio.pause();
-    }
-    this.audio = new Audio(this.datos?.cancion);
-    this.audio.loop = true;
-    this.audio.play().catch(err => {
-      console.warn('Reproducción automática bloqueada:', err);
-    });
+    this.isOpen = true;
+    setTimeout(() => {
+      this.router.navigate(['/invitacion']);
+    }, 1000);
   }
 }
