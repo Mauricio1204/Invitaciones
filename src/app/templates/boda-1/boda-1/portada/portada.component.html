@@ -1,15 +1,20 @@
-<div class="sobre-contenedor">
-  <div class="sobre" [class.abierto]="abierto" (click)="abrirSobre()">
-    <div class="tapa-superior"></div>
+<div class="portada-container">
+  <div class="sobre" (click)="abrirInvitacion()">
+    <div class="tapa"></div>
     <div class="cuerpo">
-      <div class="contenido" *ngIf="abierto">
-        <h1>{{ datos?.nombres }}</h1>
-        <p>{{ datos?.fecha }}</p>
-        <p>{{ datos?.lugar }}</p>
-      </div>
-      <div class="lazo" *ngIf="!abierto">
-        <span class="nudo"></span>
-      </div>
+      <div class="texto-invitacion">¡Nos Casamos!</div>
     </div>
+  </div>
+
+  <button class="boton-abrir" (click)="abrirInvitacion()">
+    Abrir Invitación
+  </button>
+
+  <!-- Mensaje de error para audio -->
+  <div *ngIf="errorAudio" class="mensaje-error">
+    {{ errorAudio }}
+    <button *ngIf="errorAudio" (click)="reproducirAudio()" class="boton-activar-audio">
+      Activar Música
+    </button>
   </div>
 </div>

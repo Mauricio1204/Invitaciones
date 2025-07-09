@@ -1,40 +1,37 @@
-<div class="invitacion-contenedor">
-  <div class="invitacion">
-    <div class="encabezado">
-      <p class="together">TOGETHER WITH THEIR FAMILIES</p>
-      <div class="nombres">
-        <h1>Sabat</h1>
-        <p class="and">&</p>
-        <h1>Crumbie</h1>
-      </div>
-      <p class="invitan">WE INVITE YOU TO JOIN OUR WEDDING</p>
-    </div>
+<div class="invitacion-container">
+  <header class="header-invitacion">
+    <h1>Juan & Paula</h1>
+    <p>¡Queremos compartir este día especial contigo!</p>
+  </header>
 
-    <div class="fecha">
-      <p>MAR | 19 | 2024</p>
-      <p>TWO O'CLOCK IN THE AFTERNOON</p>
-      <p>REBOSAH HALL, PRINOGURAT</p>
-      <p class="reception">Reception to follow</p>
-    </div>
+  <section class="detalles-evento">
+    <h2>Detalles del Evento</h2>
+    <p><i class="icono">📅</i> 30 de Septiembre de 2025</p>
+    <p><i class="icono">⏰</i> 4:00 PM</p>
+    <p><i class="icono">📍</i> Jardín Las Rosas, CDMX</p>
+  </section>
 
-    <div class="detalles">
-      <h3>Details</h3>
-      <div class="seccion">
-        <h4>RECEPTION</h4>
-        <p>210 DOWNYONG ROAD</p>
-        <p>PRINCESURAT, TEMAANGGUNG, 4312</p>
-      </div>
-      <div class="seccion">
-        <h4>THE CHAPEL</h4>
-        <p>25 PONDIDI ROAD</p>
-        <p>PRINCESURAT, TEMAANGGUNG, 4623</p>
-      </div>
-      <div class="seccion">
-        <h4>THE HOTEL</h4>
-        <p>PLEASE PRE BOOK AS THEIR ARE</p>
-        <p>LIMITED BOOKS</p>
-        <p>THE STAMPED</p>
-      </div>
+  <section class="contador">
+    <h2>Faltan</h2>
+    <div class="tiempo">
+      <span>{{ tiempoRestante.dias }} días</span>
+      <span>{{ tiempoRestante.horas }} horas</span>
     </div>
+  </section>
+
+  <section class="galeria">
+    <h2>Nuestra Galería</h2>
+    <div class="grid-fotos">
+      <img *ngFor="let foto of fotosPareja" [src]="foto" alt="Foto de la pareja">
+    </div>
+  </section>
+
+  <div class="acciones">
+    <button class="boton-confirmar" (click)="confirmarAsistencia()">
+      Confirmar Asistencia
+    </button>
+    <button class="boton-regalos" (click)="verMesaRegalos()">
+      Mesa de Regalos
+    </button>
   </div>
 </div>

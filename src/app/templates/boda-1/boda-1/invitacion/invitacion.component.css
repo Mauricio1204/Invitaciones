@@ -1,104 +1,82 @@
-.invitacion-contenedor {
+.invitacion-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.header-invitacion {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header-invitacion h1 {
+  font-size: 3rem;
+  color: #c06068;
+}
+
+.detalles-evento {
+  background-color: #f8f8f8;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.contador {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.tiempo {
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background-color: #f9f3f0;
-  padding: 40px 20px;
-  font-family: 'Playfair Display', serif;
-  color: #5a4a42;
+  gap: 2rem;
+  font-size: 1.5rem;
 }
 
-.invitacion {
-  background-color: white;
+.galeria {
+  margin: 3rem 0;
+}
+
+.grid-fotos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.grid-fotos img {
   width: 100%;
-  max-width: 600px;
-  padding: 40px;
-  box-shadow: 0 5px 25px rgba(0,0,0,0.1);
-  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
-.together {
+.acciones {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.boton-confirmar, .boton-regalos {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 25px;
   font-size: 1rem;
-  letter-spacing: 3px;
-  margin-bottom: 30px;
-  color: #a38b7e;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.nombres {
-  margin: 30px 0;
+.boton-confirmar {
+  background-color: #4CAF50;
+  color: white;
 }
 
-.nombres h1 {
-  font-size: 2.5rem;
-  margin: 10px 0;
-  font-weight: 400;
+.boton-regalos {
+  background-color: #2196F3;
+  color: white;
 }
 
-.and {
-  font-size: 1.2rem;
-  margin: 5px 0;
-}
-
-.invitan {
-  font-size: 1rem;
-  letter-spacing: 2px;
-  margin: 30px 0;
-  color: #a38b7e;
-}
-
-.fecha {
-  margin: 40px 0;
-  line-height: 1.8;
-}
-
-.fecha p {
-  font-size: 1.1rem;
-  letter-spacing: 1px;
-}
-
-.reception {
-  margin-top: 20px;
-  font-style: italic;
-}
-
-.detalles {
-  margin-top: 50px;
-  text-align: center;
-}
-
-.detalles h3 {
-  font-size: 1.3rem;
-  margin-bottom: 30px;
-  font-weight: 400;
-  border-bottom: 1px solid #e8d5cc;
-  padding-bottom: 10px;
-  display: inline-block;
-}
-
-.seccion {
-  margin: 25px 0;
-}
-
-.seccion h4 {
-  font-size: 1rem;
-  margin-bottom: 10px;
-  font-weight: 600;
-  letter-spacing: 1px;
-}
-
-.seccion p {
-  font-size: 0.9rem;
-  line-height: 1.6;
-  color: #7a6a62;
-}
-
-@media (max-width: 600px) {
-  .invitacion {
-    padding: 30px 20px;
-  }
-
-  .nombres h1 {
-    font-size: 2rem;
-  }
+.boton-confirmar:hover, .boton-regalos:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
