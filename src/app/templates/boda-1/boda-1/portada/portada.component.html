@@ -1,8 +1,15 @@
-<div class="portada-contenedor">
-  <div class="sobre" [class.abierto]="isOpen" (click)="abrirSobre()">
-    <div class="tapa"></div>
+<div class="sobre-contenedor">
+  <div class="sobre" [class.abierto]="abierto" (click)="abrirSobre()">
+    <div class="tapa-superior"></div>
     <div class="cuerpo">
-      <div class="liston"></div>
+      <div class="contenido" *ngIf="abierto">
+        <h1>{{ datos?.nombres }}</h1>
+        <p>{{ datos?.fecha }}</p>
+        <p>{{ datos?.lugar }}</p>
+      </div>
+      <div class="lazo" *ngIf="!abierto">
+        <span class="nudo"></span>
+      </div>
     </div>
   </div>
 </div>
