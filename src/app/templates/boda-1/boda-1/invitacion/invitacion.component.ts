@@ -29,9 +29,7 @@ interface CountdownTime {
   selector: 'app-invitacion',
   standalone: true,
   imports: [CommonModule],
-  imports: [CommonModule],
   templateUrl: './invitacion.component.html',
-  styleUrls: ['./invitacion.component.css']
   styleUrls: ['./invitacion.component.css']
 })
 export class InvitacionComponent implements OnInit {

@@ -7,35 +7,35 @@
     <h2>Faltan</h2>
     <div class="countdown">
       <div class="countdown-item">
-        <span class="countdown-number">{{ countdown.days }}</span>
+        <span class="countdown-number">{{ daysRemaining }}</span>
         <span class="countdown-label">Días</span>
       </div>
       <div class="countdown-item">
-        <span class="countdown-number">{{ countdown.hours }}</span>
+        <span class="countdown-number">{{ hoursRemaining }}</span>
         <span class="countdown-label">Horas</span>
       </div>
       <div class="countdown-item">
-        <span class="countdown-number">{{ countdown.minutes }}</span>
+        <span class="countdown-number">{{ minutesRemaining }}</span>
         <span class="countdown-label">Minutos</span>
       </div>
       <div class="countdown-item">
-        <span class="countdown-number">{{ countdown.seconds }}</span>
+        <span class="countdown-number">{{ secondsRemaining }}</span>
         <span class="countdown-label">Segundos</span>
       </div>
     </div>
   </div>
 
-  <div class="details-section" *ngIf="datos">
+  <div class="details-section">
     <div class="detail-card">
       <h3>Fecha y Hora</h3>
-      <p>{{ datos.fecha }}</p>
-      <p>{{ datos.hora }}</p>
+      <p>{{ datos?.fecha }}</p>
+      <p>{{ datos?.hora }}</p>
     </div>
 
     <div class="detail-card">
       <h3>Lugar</h3>
-      <p>{{ datos.lugar }}</p>
-      <p>{{ datos.direccion }}</p>
+      <p>{{ datos?.lugar }}</p>
+      <p>{{ datos?.direccion }}</p>
       <button (click)="openLocation()" class="location-button">Ver Ubicación</button>
     </div>
 
@@ -47,21 +47,12 @@
     </div>
   </div>
 
-  <div class="gallery-section" *ngIf="galleryImages.length > 0">
+  <div class="gallery-section">
     <h2>Nuestra Galería</h2>
     <div class="gallery">
       <div class="gallery-item" *ngFor="let image of galleryImages">
-        <img [src]="image" alt="Foto de la pareja">
+        <img [src]="'assets/images/galeria/' + image" alt="Foto de la pareja">
       </div>
     </div>
-  </section>
-
-  <div class="acciones">
-    <button class="boton-confirmar" (click)="confirmarAsistencia()">
-      Confirmar Asistencia
-    </button>
-    <button class="boton-regalos" (click)="verMesaRegalos()">
-      Mesa de Regalos
-    </button>
   </div>
 </div>
