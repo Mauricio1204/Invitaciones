@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-invitacion',
@@ -18,21 +17,25 @@ export class InvitacionComponent implements OnInit {
   secondsRemaining = 0;
   galleryImages: string[] = [];
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
-    const cliente = this.route.parent?.snapshot.paramMap.get('cliente') || 'default';
-    this.http.get(`assets/clientes/boda-1/${cliente}.json`).subscribe({
-      next: (data) => {
-        this.datos = data;
-        this.galleryImages = this.datos.galeria || [];
-        this.startCountdown();
-      },
-      error: (err) => console.error('Error cargando JSON', err)
-    });
+    // Obtener los datos del estado de navegación
+    const navigation = this.router.getCurrentNavigation();
+    this.datos = navigation?.extras.state?.['datosBoda'];
+
+    if (this.datos) {
+      this.galleryImages = this.datos.galeria || [];
+      this.startCountdown();
+    } else {
+      // Si no hay datos (por recarga), redirigir a portada
+      this.router.navigate(['/']);
+    }
   }
 
   startCountdown() {
+    if (!this.datos?.fechaCompleta) return;
+
     const weddingDate = new Date(this.datos.fechaCompleta).getTime();
 
     const updateCountdown = () => {

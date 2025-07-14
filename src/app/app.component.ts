@@ -10,5 +10,4 @@ import { PortadaComponent } from "./templates/boda-1/boda-1/portada/portada.comp
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Invitaciones';
 }
