@@ -1,51 +1,59 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
+import { Router } from '@angular/router';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-portada',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './portada.component.html',
-  styleUrls: ['./portada.component.css'],
-  providers: [HttpClient] // Añade esto
+  styleUrls: ['./portada.component.css']
 })
-export class PortadaComponent implements OnInit {
-  private route = inject(ActivatedRoute);
-  private http = inject(HttpClient);
+export class PortadaComponent implements OnInit, OnDestroy {
+  musicaReproduciendo = false;
+  audio: HTMLAudioElement | null = null;
+  imagenFondo = 'assets/imgs/juan-y-paula/floral.png';
 
-  datos: any;
-  abierto = false;
-  private audio: HTMLAudioElement | null = null;
+  constructor(
+    private router: Router,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
 
-  async ngOnInit() {
-    try {
-      const cliente = this.route.parent?.snapshot.paramMap.get('cliente') || 'default';
-      this.datos = await this.http.get(`assets/clientes/boda-1/${cliente}.json`).toPromise();
-      this.playAudio();
-    } catch (err) {
-      console.error('Error cargando JSON', err);
-      this.datos = {
-        nombres: 'Sara & Joel',
-        fecha: '21.08.19',
-        lugar: 'Ubicación por defecto',
-        cancion: 'assets/music/default.mp3'
-      };
+  ngOnInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.audio = new Audio('/assets/audio/La_constante.mp3');
+      this.audio.loop = true;
+      // Precargar audio (opcional)
+      this.audio.load();
     }
   }
 
-  abrirSobre() {
-    this.abierto = true;
+  manejarBoton(): void {
+    if (!this.musicaReproduciendo && this.audio) {
+      this.reproducirMusica();
+    }
+    this.irAInvitacion();
   }
 
-  private playAudio() {
-    if (!this.datos?.cancion) return;
+  reproducirMusica(): void {
+    if (this.audio) {
+      this.audio.play()
+        .then(() => this.musicaReproduciendo = true)
+        .catch(e => console.error("Error al reproducir:", e));
+    }
+  }
 
-    this.audio = new Audio(this.datos.cancion);
-    this.audio.loop = true;
-    this.audio.play().catch(err => {
-      console.warn('Error reproduciendo audio:', err);
-    });
+  irAInvitacion(): void {
+    // Navegación relativa al router actual
+    this.router.navigateByUrl('/invitacion');
+    // Alternativa: this.router.navigate(['/invitacion']);
+  }
+
+  ngOnDestroy(): void {
+    if (this.audio) {
+      this.audio.pause();
+      this.audio = null;
+    }
   }
 }

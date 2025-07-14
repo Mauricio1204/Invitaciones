@@ -1,39 +1,57 @@
-<div class="invitacion-contenedor">
-  <div class="invitacion">
-    <div class="encabezado">
-      <p class="together">TOGETHER WITH THEIR FAMILIES</p>
-      <div class="nombres">
-        <h1>Sabat</h1>
-        <p class="and">&</p>
-        <h1>Crumbie</h1>
+<div class="invitacion-container">
+  <div class="invitacion-header">
+    <h1>Detalles de Nuestra Boda</h1>
+  </div>
+
+  <div class="countdown-container">
+    <h2>Faltan</h2>
+    <div class="countdown">
+      <div class="countdown-item">
+        <span class="countdown-number">{{ countdown.days }}</span>
+        <span class="countdown-label">Días</span>
       </div>
-      <p class="invitan">WE INVITE YOU TO JOIN OUR WEDDING</p>
+      <div class="countdown-item">
+        <span class="countdown-number">{{ countdown.hours }}</span>
+        <span class="countdown-label">Horas</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-number">{{ countdown.minutes }}</span>
+        <span class="countdown-label">Minutos</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-number">{{ countdown.seconds }}</span>
+        <span class="countdown-label">Segundos</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="details-section" *ngIf="datos">
+    <div class="detail-card">
+      <h3>Fecha y Hora</h3>
+      <p>{{ datos.fecha }}</p>
+      <p>{{ datos.hora }}</p>
     </div>
 
-    <div class="fecha">
-      <p>MAR | 19 | 2024</p>
-      <p>TWO O'CLOCK IN THE AFTERNOON</p>
-      <p>REBOSAH HALL, PRINOGURAT</p>
-      <p class="reception">Reception to follow</p>
+    <div class="detail-card">
+      <h3>Lugar</h3>
+      <p>{{ datos.lugar }}</p>
+      <p>{{ datos.direccion }}</p>
+      <button (click)="openLocation()" class="location-button">Ver Ubicación</button>
     </div>
 
-    <div class="detalles">
-      <h3>Details</h3>
-      <div class="seccion">
-        <h4>RECEPTION</h4>
-        <p>210 DOWNYONG ROAD</p>
-        <p>PRINCESURAT, TEMAANGGUNG, 4312</p>
-      </div>
-      <div class="seccion">
-        <h4>THE CHAPEL</h4>
-        <p>25 PONDIDI ROAD</p>
-        <p>PRINCESURAT, TEMAANGGUNG, 4623</p>
-      </div>
-      <div class="seccion">
-        <h4>THE HOTEL</h4>
-        <p>PLEASE PRE BOOK AS THEIR ARE</p>
-        <p>LIMITED BOOKS</p>
-        <p>THE STAMPED</p>
+    <div class="detail-card">
+      <h3>Confirmar Asistencia</h3>
+      <button (click)="confirmAttendance()" class="whatsapp-button">
+        Confirmar por WhatsApp
+      </button>
+    </div>
+  </div>
+
+  <div class="gallery-section" *ngIf="galleryImages.length > 0">
+    <h2>Nuestra Galería</h2>
+    <div class="gallery">
+      <div class="gallery-item" *ngFor="let image of galleryImages">
+        <img [src]="image" alt="Foto de la pareja">
       </div>
     </div>
   </div>

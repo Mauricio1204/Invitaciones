@@ -6,6 +6,7 @@ import { GaleriaComponent } from './galeria/galeria.component';
 import { ConfirmacionComponent } from './confirmacion/confirmacion.component';
 import { Boda1RoutingModule } from './boda-1-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { InvitacionComponent } from './invitacion/invitacion.component';
 
 
 @NgModule({
@@ -19,7 +20,9 @@ import { HttpClientModule } from '@angular/common/http';
     PortadaComponent,
     GaleriaComponent,
     ConfirmacionComponent,
-    HttpClientModule
+    InvitacionComponent,
+    HttpClientModule,
+
   ],
   exports:[
 

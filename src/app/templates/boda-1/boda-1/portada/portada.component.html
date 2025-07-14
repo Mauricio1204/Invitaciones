@@ -1,15 +1,28 @@
-<div class="sobre-contenedor">
-  <div class="sobre" [class.abierto]="abierto" (click)="abrirSobre()">
-    <div class="tapa-superior"></div>
-    <div class="cuerpo">
-      <div class="contenido" *ngIf="abierto">
-        <h1>{{ datos?.nombres }}</h1>
-        <p>{{ datos?.fecha }}</p>
-        <p>{{ datos?.lugar }}</p>
-      </div>
-      <div class="lazo" *ngIf="!abierto">
-        <span class="nudo"></span>
-      </div>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="portada-container" [style.backgroundImage]="'url(' + imagenFondo + ')'">
+  <div class="overlay"></div>
+
+  <div class="contenido-portada">
+    <div class="nombres">
+      <h1>Rodrigo</h1>
+      <span class="y-simbolo">&</span>
+      <h1>Adamaris</h1>
     </div>
+
+    <div class="imagen-pareja">
+      <img src="https://th.bing.com/th/id/OIP.FIhOqTmU3NFQG7X5MC9HoAHaHa?w=200&h=200&rs=1&pid=ImgDetMain"
+           alt="Rodrigo y Adamaris" class="foto-pareja">
+    </div>
+
+    <div class="frase-invitacion">
+      <p>Hoy celebramos el amor, mañana la vida juntos.</p>
+      <p>¡Acompáñanos en este día tan especial!"</p>
+    </div>
+
+    <button class="boton-unificado" (click)="manejarBoton()">
+      <p>Abrir invitación</p>
+      <!-- <span *ngIf="!musicaReproduciendo">🎵 Ver Invitación</span>
+      <span *ngIf="musicaReproduciendo">🔊 Ver Invitación (Música ON)</span> -->
+    </button>
   </div>
 </div>
