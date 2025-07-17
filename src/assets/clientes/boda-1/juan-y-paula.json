@@ -1,24 +1,52 @@
 {
-  "nombres": "Juan & Paula",
+  "nombres": "Rodrigo y Adamari",
   "mensaje": "Nos casamos y queremos compartir este momento especial contigo",
-  "fecha": "15 de Diciembre, 2024",
-  "fechaCompleta": "2024-12-15T18:00:00",
-  "hora": "6:00 PM",
-  "lugar": "Hacienda Las Flores",
-  "direccion": "Carretera a Valle de Bravo Km 12.5, Estado de México",
-  "ubicacionUrl": "https://goo.gl/maps/ejemplo",
-  "whatsapp": "525512345678",
-  "cancion": "/assets/audio/La_constante.mp3",
-  "imagenFondo": "juan-y-paula/floral.png",
-  "galeria": [
-    "/juan-y-paula/foto1.jpg",
-    "/juan-y-paula/foto2.jpg",
-    "/juan-y-paula/foto3.jpg",
-    "/juan-y-paula/foto4.jpg",
-    "/juan-y-paula/foto5.jpg",
-    "/juan-y-paula/foto6.jpg"
-  ]
+"fecha": "30 de Agosto de 2025",
+  "fechaCompleta": "2025-08-30T18:00:00",
+  "galeria": [ "foto1.jpg",
+    "foto2.jpg",
+    "foto3.jpg",
+    "foto4.jpg",
+    "foto5.jpg",
+    "foto6.jpg"],
+  "ubicacionUrl": "https://maps.app.goo.gl/QVzrHmMnXVYZCY6C8",
+  "whatsapp": "55 8768 4266",
+  "recepcion": {
+    "lugar": "Jardin Mesa",
+    "fechaHora": "30 de agosto de 2025 16:00 hrs.",
+    "direccion": "JQ87+2H6 Cuautitlán Izcalli, Estado de México",
+    "mapaUrl": "https://maps.app.goo.gl/jPLTuFuQx4VwsEbf9"
+
+  },
+   "padresPadrinos": {
+    "titulo": "Con la bendición de Dios, Nuestros Padres y Padrinos",
+    "mensaje": "¡Gracias por acompañarnos en este día tan especial!",
+    "padresNovia": {
+      "nombres": "Irene y Carlos",
+      "rol": "Padres de la Novia"
+    },
+    "padresNovio": {
+      "nombres": "Santiago y Emilia",
+      "rol": "Padres del Novio"
+    },
+    "padrinos": [
+      {
+        "nombres": "Mauro y Laura",
+        "rol": "Padrinos de Velación"
+      },
+      {
+        "nombres": "Héctor y María",
+        "rol": "Padrinos de Anillos"
+      },
+      {
+        "nombres": "Esteban y Lupita",
+        "rol": "Padrinos de Lazo"
+      },
+      {
+        "nombres": "Antonio y Martha",
+        "rol": "Padrinos de Arras"
+      }
+    ]
+  }
+
 }
-
-
-

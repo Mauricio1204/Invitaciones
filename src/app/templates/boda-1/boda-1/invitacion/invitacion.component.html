@@ -1,58 +1,103 @@
-<div class="invitacion-container">
-  <div class="invitacion-header">
-    <h1>Detalles de Nuestra Boda</h1>
+<div class="invitacion-container" [style.backgroundImage]="'url(' + imagenFondo + ')'">
+  <div class="overlay"></div>
+
+  <div class="contenido-invitacion">
+    <!-- Encabezado con nombres -->
+    <div class="nombres">
+      <h1>Rodrigo</h1>
+      <span class="y-simbolo">&</span>
+      <h1>Adamari</h1>
+    </div>
+
+    <!-- Fecha de la boda -->
+    <div class="fecha-boda">
+      <p>🕊️ {{ datos.fecha }} 🕊️</p>
+    </div>
+
+    <!-- Contador regresivo -->
+    <div class="countdown-container">
+      <h2>Faltan</h2>
+      <div class="countdown">
+        <div class="countdown-item">
+          <span class="countdown-number">{{ daysRemaining }}</span>
+          <span class="countdown-label">Días</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number">{{ hoursRemaining }}</span>
+          <span class="countdown-label">Horas</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number">{{ minutesRemaining }}</span>
+          <span class="countdown-label">Minutos</span>
+        </div>
+      </div>
+    </div>
+    <!-- Sección de Recepción -->
+<div class="recepcion-section" *ngIf="datos.recepcion">
+  <h2>Recepción</h2>
+
+  <div class="recepcion-lugar">{{ datos.recepcion.lugar }}</div>
+
+  <div class="recepcion-detalle">
+    <p><strong>Cuándo:</strong> {{ datos.recepcion.fechaHora }}</p>
+    <p><strong>Dirección:</strong> {{ datos.recepcion.direccion }}</p>
   </div>
 
-  <div class="countdown-container">
-    <h2>Faltan</h2>
-    <div class="countdown">
-      <div class="countdown-item">
-        <span class="countdown-number">{{ daysRemaining }}</span>
-        <span class="countdown-label">Días</span>
+  <div class="recepcion-enlaces">
+    <a [href]="datos.recepcion.mapaUrl" target="_blank" class="enlace-recepcion">Ver mapa</a>
+  </div>
+</div>
+
+    <!-- Galería de fotos -->
+    <div class="gallery-section" *ngIf="galleryImages.length > 0">
+      <h2>Nuestros Momentos</h2>
+      <div class="gallery">
+        <div class="gallery-item" *ngFor="let image of galleryImages">
+          <img [src]="image" alt="Foto de la pareja" loading="lazy">
+        </div>
       </div>
-      <div class="countdown-item">
-        <span class="countdown-number">{{ hoursRemaining }}</span>
-        <span class="countdown-label">Horas</span>
-      </div>
-      <div class="countdown-item">
-        <span class="countdown-number">{{ minutesRemaining }}</span>
-        <span class="countdown-label">Minutos</span>
-      </div>
-      <div class="countdown-item">
-        <span class="countdown-number">{{ secondsRemaining }}</span>
-        <span class="countdown-label">Segundos</span>
-      </div>
+    </div>
+
+    <!-- Sección de Padres y Padrinos -->
+<div class="padres-padrinos-section" *ngIf="datos.padresPadrinos">
+  <h2>{{ datos.padresPadrinos.titulo || 'Con la bendición de Dios, Nuestros Padres y Padrinos' }}</h2>
+
+  <p class="mensaje-padrinos">{{ datos.padresPadrinos.mensaje || '¡Gracias por acompañarnos en este día tan especial!' }}</p>
+
+  <div class="familiares-container">
+    <!-- Padres de la novia -->
+    <div class="familiares-group" *ngIf="datos.padresPadrinos.padresNovia">
+      <p class="nombres-familiares">{{ datos.padresPadrinos.padresNovia.nombres }}</p>
+      <p class="rol-familiares">{{ datos.padresPadrinos.padresNovia.rol }}</p>
+    </div>
+
+    <!-- Padres del novio -->
+    <div class="familiares-group" *ngIf="datos.padresPadrinos.padresNovio">
+      <p class="nombres-familiares">{{ datos.padresPadrinos.padresNovio.nombres }}</p>
+      <p class="rol-familiares">{{ datos.padresPadrinos.padresNovio.rol }}</p>
+    </div>
+
+    <!-- Padrinos -->
+    <div class="familiares-group" *ngFor="let padrino of datos.padresPadrinos.padrinos">
+      <p class="nombres-familiares">{{ padrino.nombres }}</p>
+      <p class="rol-familiares">{{ padrino.rol }}</p>
     </div>
   </div>
+</div>
 
-  <div class="details-section">
-    <div class="detail-card">
-      <h3>Fecha y Hora</h3>
-      <p>{{ datos?.fecha }}</p>
-      <p>{{ datos?.hora }}</p>
+    <!-- Frase de cierre -->
+    <div class="frase-cierre">
+      <p>"No vemos la hora de compartir este día tan especial con ustedes."</p>
     </div>
 
-    <div class="detail-card">
-      <h3>Lugar</h3>
-      <p>{{ datos?.lugar }}</p>
-      <p>{{ datos?.direccion }}</p>
-      <button (click)="openLocation()" class="location-button">Ver Ubicación</button>
-    </div>
-
-    <div class="detail-card">
-      <h3>Confirmar Asistencia</h3>
-      <button (click)="confirmAttendance()" class="whatsapp-button">
-        Confirmar por WhatsApp
+    <!-- Botones de acción -->
+    <div class="botones-accion">
+      <button class="boton-invitacion" (click)="confirmAttendance()">
+        Confirmar Asistencia
       </button>
-    </div>
-  </div>
-
-  <div class="gallery-section">
-    <h2>Nuestra Galería</h2>
-    <div class="gallery">
-      <div class="gallery-item" *ngFor="let image of galleryImages">
-        <img [src]="'assets/imgs' + image" alt="Foto de la pareja">
-      </div>
+      <button class="boton-ubicacion" (click)="openLocation()">
+        Ver Ubicación
+      </button>
     </div>
   </div>
 </div>
