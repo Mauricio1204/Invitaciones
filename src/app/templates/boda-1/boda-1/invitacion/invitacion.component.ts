@@ -21,7 +21,9 @@ export class InvitacionComponent implements OnInit {
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
   ngOnInit(): void {
-    const cliente = this.route.parent?.snapshot.paramMap.get('cliente') || 'default';
+    const cliente = "juan-y-paula"
+      //const cliente = this.route.parent?.snapshot.paramMap.get('cliente') || 'default';
+    //this.http.get(`assets/clientes/boda-1/${cliente}.json`).subscribe({
     this.http.get(`assets/clientes/boda-1/${cliente}.json`).subscribe({
       next: (data) => {
         this.datos = data;

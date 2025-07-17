@@ -1,182 +1,116 @@
+/* Estilos base mejorados */
 .invitacion-container {
   max-width: 100%;
-  padding: 20px;
+  padding: 2rem;
   font-family: 'Playfair Display', serif;
   color: #5a3e36;
   background-color: #fff9fa;
   min-height: 100vh;
 }
 
-.invitacion-header {
-  text-align: center;
-  margin-bottom: 40px;
-  padding: 20px;
-  background-color: rgba(248, 228, 232, 0.7);
-  border-radius: 10px;
+/* Fondo floral como alternativa */
+.invitacion-container::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/imgs/juan-y-paula/floral.png');
+  background-size: cover;
+  opacity: 0.1;
+  z-index: -1;
+  pointer-events: none;
 }
 
-.invitacion-header h1 {
-  font-size: 2.5rem;
-  color: #8b5a5a;
-  margin: 0;
-}
-
+/* Mejoras para el contador */
 .countdown-container {
   text-align: center;
-  margin: 30px 0;
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
-.countdown-container h2 {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  color: #8b5a5a;
+  margin: 2rem 0;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .countdown {
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 1rem;
   flex-wrap: wrap;
 }
 
 .countdown-item {
   background-color: #f8e4e8;
-  padding: 15px 20px;
-  border-radius: 10px;
+  padding: 1rem;
+  border-radius: 8px;
   min-width: 80px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
-.countdown-number {
-  font-size: 2rem;
-  font-weight: bold;
-  display: block;
-  color: #8b5a5a;
-}
-
-.countdown-label {
-  font-size: 1rem;
-  display: block;
-  margin-top: 5px;
-}
-
+/* Sección de detalles mejorada */
 .details-section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  margin: 40px 0;
+  gap: 1.5rem;
+  margin: 2rem 0;
 }
 
 .detail-card {
-  background-color: white;
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  text-align: center;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.detail-card h3 {
-  font-size: 1.5rem;
-  color: #8b5a5a;
-  margin-top: 0;
-  margin-bottom: 15px;
-}
-
-.detail-card p {
-  font-size: 1.1rem;
-  margin: 10px 0;
-}
-
-.location-button, .whatsapp-button {
-  background-color: #e2a5b2;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 25px;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-top: 15px;
-  transition: all 0.3s ease;
-  font-family: 'Playfair Display', serif;
-}
-
-.location-button:hover, .whatsapp-button:hover {
-  background-color: #d48a9a;
-  transform: scale(1.05);
-}
-
-.whatsapp-button {
-  background-color: #25D366;
-}
-
-.whatsapp-button:hover {
-  background-color: #128C7E;
-}
-
-.gallery-section {
-  margin: 40px 0;
-  text-align: center;
-}
-
-.gallery-section h2 {
-  font-size: 2rem;
-  color: #8b5a5a;
-  margin-bottom: 20px;
-}
-
+/* Galería optimizada */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 15px;
-  padding: 15px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
 }
 
 .gallery-item {
+  height: 200px;
   overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-  height: 250px;
-}
-
-.gallery-item:hover {
-  transform: scale(1.03);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .gallery-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.3s ease;
 }
 
 .gallery-item:hover img {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
-@media (max-width: 768px) {
-  .countdown {
-    gap: 10px;
-  }
+/* Botones mejorados */
+button {
+  margin-top: 1rem;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
 
-  .countdown-item {
-    min-width: 70px;
-    padding: 10px 15px;
-  }
+.location-button {
+  background-color: #e2a5b2;
+  color: white;
+}
 
-  .countdown-number {
-    font-size: 1.5rem;
-  }
+.whatsapp-button {
+  background-color: #25D366;
+  color: white;
+}
 
-  .countdown-label {
-    font-size: 0.8rem;
-  }
-
-  .details-section {
-    grid-template-columns: 1fr;
-  }
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

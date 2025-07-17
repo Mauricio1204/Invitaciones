@@ -24,6 +24,7 @@ export class PortadaComponent implements OnInit, OnDestroy {
     if (isPlatformBrowser(this.platformId)) {
       this.audio = new Audio('/assets/audio/La_constante.mp3');
       this.audio.loop = true;
+      console.log("reproduciondo")
       // Precargar audio (opcional)
       this.audio.load();
     }
@@ -46,7 +47,7 @@ export class PortadaComponent implements OnInit, OnDestroy {
 
   irAInvitacion(): void {
     // Navegación relativa al router actual
-    this.router.navigateByUrl('/invitacion');
+    this.router.navigate(['../invitacion']);
     // Alternativa: this.router.navigate(['/invitacion']);
   }
 

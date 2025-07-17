@@ -8,14 +8,17 @@
   "direccion": "Carretera a Valle de Bravo Km 12.5, Estado de México",
   "ubicacionUrl": "https://goo.gl/maps/ejemplo",
   "whatsapp": "525512345678",
-  "cancion": "Flume.mp3",
+  "cancion": "/assets/audio/La_constante.mp3",
   "imagenFondo": "juan-y-paula/floral.png",
   "galeria": [
-    "juan-y-paula/foto1.jpg",
-    "juan-y-paula/foto2.jpg",
-    "juan-y-paula/foto3.jpg",
-    "juan-y-paula/foto4.jpg",
-    "juan-y-paula/foto5.jpg",
-    "juan-y-paula/foto6.jpg"
+    "/juan-y-paula/foto1.jpg",
+    "/juan-y-paula/foto2.jpg",
+    "/juan-y-paula/foto3.jpg",
+    "/juan-y-paula/foto4.jpg",
+    "/juan-y-paula/foto5.jpg",
+    "/juan-y-paula/foto6.jpg"
   ]
 }
+
+
+
