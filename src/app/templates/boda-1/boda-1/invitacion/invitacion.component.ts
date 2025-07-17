@@ -18,11 +18,11 @@ export class InvitacionComponent implements OnInit {
   secondsRemaining = 0;
   galleryImages: string[] = [];
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     const cliente = "juan-y-paula"
-      //const cliente = this.route.parent?.snapshot.paramMap.get('cliente') || 'default';
+    //const cliente = this.route.parent?.snapshot.paramMap.get('cliente') || 'default';
     //this.http.get(`assets/clientes/boda-1/${cliente}.json`).subscribe({
     this.http.get(`assets/clientes/boda-1/${cliente}.json`).subscribe({
       next: (data) => {
@@ -35,6 +35,8 @@ export class InvitacionComponent implements OnInit {
   }
 
   startCountdown() {
+    if (!this.datos?.fechaCompleta) return;
+
     const weddingDate = new Date(this.datos.fechaCompleta).getTime();
 
     const updateCountdown = () => {
