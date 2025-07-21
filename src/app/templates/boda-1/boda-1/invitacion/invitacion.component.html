@@ -32,32 +32,87 @@
         </div>
       </div>
     </div>
-    <!-- Sección de Recepción -->
-<div class="recepcion-section" *ngIf="datos.recepcion">
-  <h2>Recepción</h2>
+<!-- Sección Dónde & Cuándo -->
+<div class="eventos-section" *ngIf="datos.eventos">
+  <h2>Dónde & Cuándo</h2>
 
-  <div class="recepcion-lugar">{{ datos.recepcion.lugar }}</div>
+  <div class="eventos-container">
+    <!-- Ceremonia -->
+    <div class="evento-card">
+      <h3>Ceremonia</h3>
+      <div class="evento-info">
+        <p class="evento-lugar">{{ datos.eventos.ceremonia?.lugar }}</p>
+        <p><strong>Cuándo:</strong> {{ datos.eventos.ceremonia?.fechaHora }}</p>
+        <p><strong>Dirección:</strong> {{ datos.eventos.ceremonia?.direccion }}</p>
+      </div>
+      <div class="evento-enlaces">
+        <a [href]="datos.eventos.ceremonia?.mapaUrl" target="_blank" class="enlace-evento">Ver mapa</a>
 
-  <div class="recepcion-detalle">
-    <p><strong>Cuándo:</strong> {{ datos.recepcion.fechaHora }}</p>
-    <p><strong>Dirección:</strong> {{ datos.recepcion.direccion }}</p>
-  </div>
-
-  <div class="recepcion-enlaces">
-    <a [href]="datos.recepcion.mapaUrl" target="_blank" class="enlace-recepcion">Ver mapa</a>
-  </div>
-</div>
-
-    <!-- Galería de fotos -->
-    <div class="gallery-section" *ngIf="galleryImages.length > 0">
-      <h2>Nuestros Momentos</h2>
-      <div class="gallery">
-        <div class="gallery-item" *ngFor="let image of galleryImages">
-          <img [src]="image" alt="Foto de la pareja" loading="lazy">
-        </div>
       </div>
     </div>
 
+    <!-- Recepción -->
+    <div class="evento-card">
+      <h3>Recepción</h3>
+      <div class="evento-info">
+        <p class="evento-lugar">{{ datos.eventos.recepcion?.lugar }}</p>
+        <p><strong>Cuándo:</strong> {{ datos.eventos.recepcion?.fechaHora }}</p>
+        <p><strong>Dirección:</strong> {{ datos.eventos.recepcion?.direccion }}</p>
+      </div>
+      <div class="evento-enlaces">
+        <a [href]="datos.eventos.recepcion?.mapaUrl" target="_blank" class="enlace-evento">Ver mapa</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+   <!-- Galería de fotos con Carrusel -->
+<div class="gallery-section" *ngIf="galleryImages.length > 0">
+  <h2>Nuestros Momentos</h2>
+
+  <div id="weddingCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item" [class.active]="i === 0" *ngFor="let image of galleryImages; let i = index">
+        <img [src]="image" class="img-fluid" [alt]="'Foto ' + (i + 1) + ' de la pareja'">
+
+      </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#weddingCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#weddingCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Siguiente</span>
+    </button>
+
+  </div>
+</div>
+<!-- Sección Dress Code -->
+<div class="dresscode-section" *ngIf="datos.dressCode">
+  <div class="dresscode-header">
+    <h2>{{ datos.dressCode.titulo || 'Dress Code' }}</h2>
+    <p class="codigo-vestimenta">{{ datos.dressCode.codigo || 'Formal/Elegante' }}</p>
+  </div>
+
+  <div class="dresscode-content">
+    <div class="dresscode-row" *ngIf="datos.dressCode.recomendaciones?.mujeres">
+      <span class="dresscode-label">Mujeres:</span>
+      <span class="dresscode-value">{{ datos.dressCode.recomendaciones?.mujeres }}</span>
+    </div>
+
+    <div class="dresscode-row" *ngIf="datos.dressCode.recomendaciones?.hombres">
+      <span class="dresscode-label">Hombres:</span>
+      <span class="dresscode-value">{{ datos.dressCode.recomendaciones?.hombres }}</span>
+    </div>
+
+    <div class="dresscode-note" *ngIf="datos.dressCode.recomendaciones?.nota">
+      {{ datos.dressCode.recomendaciones?.nota }}
+    </div>
+  </div>
+</div>
     <!-- Sección de Padres y Padrinos -->
 <div class="padres-padrinos-section" *ngIf="datos.padresPadrinos">
   <h2>{{ datos.padresPadrinos.titulo || 'Con la bendición de Dios, Nuestros Padres y Padrinos' }}</h2>
@@ -84,6 +139,8 @@
     </div>
   </div>
 </div>
+
+
 
     <!-- Frase de cierre -->
     <div class="frase-cierre">

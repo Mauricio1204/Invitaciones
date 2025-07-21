@@ -1,8 +1,8 @@
 {
   "nombres": "Rodrigo y Adamari",
   "mensaje": "Nos casamos y queremos compartir este momento especial contigo",
-"fecha": "30 de Agosto de 2025",
-  "fechaCompleta": "2025-08-30T18:00:00",
+"fecha": "29 de Agosto de 2025",
+  "fechaCompleta": "2025-08-29T18:00:00",
   "galeria": [ "foto1.jpg",
     "foto2.jpg",
     "foto3.jpg",
@@ -11,42 +11,64 @@
     "foto6.jpg"],
   "ubicacionUrl": "https://maps.app.goo.gl/QVzrHmMnXVYZCY6C8",
   "whatsapp": "55 8768 4266",
-  "recepcion": {
-    "lugar": "Jardin Mesa",
-    "fechaHora": "30 de agosto de 2025 16:00 hrs.",
-    "direccion": "JQ87+2H6 Cuautitlán Izcalli, Estado de México",
-    "mapaUrl": "https://maps.app.goo.gl/jPLTuFuQx4VwsEbf9"
+ "eventos": {
+    "ceremonia": {
+      "lugar": "Parroquia de San José Obrero",
+      "fechaHora": "28 de junio de 2025 18:00 hrs.",
+      "direccion": "Av Emiliano Zapata S/N, Emiliano Zapata, 52918 Cdad. López Mateos, Méx.",
+      "mapaUrl": "https://maps.app.goo.gl/4gK1QrnSWNpDXrUz5",
+      "calendarioUrl": "https://calendar.google.com/calendar/render?action=TEMPLATE&dates=20250628T180000Z/20250628T190000Z&text=Ceremonia%20de%20Boda%20Rodrigo%20y%20Adamaris&location=Parroquia%20de%20San%20Jos%C3%A9%20Obrero"
+    },
+    "recepcion": {
+      "lugar": "Jardín Meza",
+      "fechaHora": "28 de junio de 2025 20:00 hrs.",
+      "direccion": "Bosque de Ciprés 132, Lomas del Bosque, 54765 Cuautitlán Izcalli, Méx.",
+      "mapaUrl": "https://maps.app.goo.gl/jPLTuFuQx4VwsEbf9",
+      "calendarioUrl": "https://calendar.google.com/calendar/render?action=TEMPLATE&dates=20250628T200000Z/20250629T020000Z&text=Recepci%C3%B3n%20de%20Boda%20Rodrigo%20y%20Adamaris&location=Jard%C3%ADn%20Mesa"
+    }
 
+  },
+    "dressCode": {
+    "titulo": "Codigo de vestimenta",
+    "codigo": "Formal/Elegante",
+    "recomendaciones": {
+      "mujeres": "Vestido Largo",
+      "hombres": "Traje y Corbata",
+      "nota": "Se reserva el color blanco para la novia"
+    }
   },
    "padresPadrinos": {
     "titulo": "Con la bendición de Dios, Nuestros Padres y Padrinos",
     "mensaje": "¡Gracias por acompañarnos en este día tan especial!",
     "padresNovia": {
-      "nombres": "Irene y Carlos",
+      "nombres": "Claudia Erika Bustos Macías",
       "rol": "Padres de la Novia"
     },
     "padresNovio": {
-      "nombres": "Santiago y Emilia",
+      "nombres": "José Fidel y Gloria Arciniega",
       "rol": "Padres del Novio"
     },
     "padrinos": [
       {
-        "nombres": "Mauro y Laura",
+        "nombres": "José Fidel y Gloria Arciniega",
         "rol": "Padrinos de Velación"
       },
       {
-        "nombres": "Héctor y María",
+        "nombres": " Alvaro Saucedo y Maria Guadalupe",
         "rol": "Padrinos de Anillos"
       },
       {
-        "nombres": "Esteban y Lupita",
+        "nombres": "Pascual Bustos Arellano",
         "rol": "Padrinos de Lazo"
       },
       {
-        "nombres": "Antonio y Martha",
+        "nombres": "Edna Macías y Javier Salazar",
         "rol": "Padrinos de Arras"
       }
     ]
+
   }
+
+
 
 }

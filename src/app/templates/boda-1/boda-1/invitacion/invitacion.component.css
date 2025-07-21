@@ -98,35 +98,95 @@
   display: block;
   margin-top: 5px;
 }
-
-/* Galería de fotos */
+/* Estilos para el carrusel */
 .gallery-section {
   margin: 40px 0;
+  padding: 0 15px;
 }
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 15px;
-  margin-top: 20px;
+.gallery-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #8b5a5a;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: 700;
 }
 
-.gallery-item {
-  height: 150px;
-  border-radius: 8px;
+.carousel {
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-.gallery-item:hover {
-  transform: scale(1.03);
+.carousel-inner {
+  border-radius: 10px;
 }
 
-.gallery-item img {
-  width: 100%;
-  height: 100%;
+.carousel-item {
+  height: 800px;
+  background-color: #f8f4f0;
+}
+
+.carousel-item img {
   object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 8%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(139, 90, 90, 0.5);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-size: 60%;
+  transition: all 0.3s ease;
+}
+
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+  background-color: rgba(139, 90, 90, 0.8);
+}
+
+/* Efecto fade personalizado */
+.carousel-fade .carousel-item {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.carousel-fade .carousel-item.active {
+  opacity: 1;
+}
+
+/* Responsive para el carrusel */
+@media (max-width: 768px) {
+  .carousel-item {
+    height: 350px;
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel-item {
+    height: 250px;
+  }
+
+  .gallery-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    width: 30px;
+    height: 30px;
+  }
 }
 
 /* Frase de cierre */
@@ -199,64 +259,54 @@ button:hover {
     flex-direction: column;
   }
 }
-/* Sección de Recepción */
-.recepcion-section {
-  margin: 40px 0;
-  padding: 20px;
-  background-color: #f8f4f0;
-  border-radius: 10px;
-  border: 1px solid #e2d5c8;
-}
-
-.recepcion-lugar {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
-  color: #8b5a5a;
-  margin-bottom: 15px;
-  text-align: center;
-}
-
-.recepcion-detalle {
-  margin: 20px 0;
-  text-align: center;
-  line-height: 1.6;
-}
-
-.recepcion-detalle p {
-  margin: 10px 0;
-}
-
-.recepcion-enlaces {
+/* Sección Eventos (Dónde & Cuándo) - Versión en fila */
+.eventos-container {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  margin-top: 20px;
+  gap: 30px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.enlace-recepcion {
-  color: #8b5a5a;
-  text-decoration: none;
-  font-weight: 500;
-  border-bottom: 1px dashed #8b5a5a;
-  padding-bottom: 2px;
-  transition: all 0.3s ease;
+.evento-card {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  border: 1px solid #e2d5c8;
+  padding: 25px;
+  flex: 1;
+  min-width: 300px;
+  max-width: 450px;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.enlace-recepcion:hover {
-  color: #b5838d;
-  border-bottom-color: #b5838d;
+.evento-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive para recepción */
-@media (max-width: 600px) {
-  .recepcion-enlaces {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+
+/* Responsive para eventos en fila */
+@media (max-width: 900px) {
+  .eventos-container {
+    gap: 20px;
   }
 
-  .recepcion-lugar {
-    font-size: 1.3rem;
+  .evento-card {
+    min-width: 280px;
+  }
+}
+
+@media (max-width: 650px) {
+  .eventos-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .evento-card {
+    width: 100%;
+    max-width: 100%;
   }
 }
 /* Sección de Padres y Padrinos */
@@ -347,5 +397,101 @@ button:hover {
 
   .padres-padrinos-section h2 {
     font-size: 1.3rem;
+  }
+}
+/* Sección Dress Code */
+.dresscode-section {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  padding: 25px;
+  margin: 30px auto;
+  max-width: 500px;
+  border: 1px solid #e8d8d8;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.dresscode-header {
+  text-align: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #f0e0e0;
+  padding-bottom: 15px;
+}
+
+.dresscode-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #8b5a5a;
+  margin-bottom: 5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.codigo-vestimenta {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: #a37b76;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.dresscode-content {
+  padding: 0 15px;
+}
+
+.dresscode-row {
+  display: flex;
+  margin: 15px 0;
+  align-items: baseline;
+}
+
+.dresscode-label {
+  font-weight: 600;
+  color: #8b5a5a;
+  min-width: 90px;
+  margin-right: 10px;
+  font-size: 1rem;
+}
+
+.dresscode-value {
+  color: #5a3e36;
+  flex-grow: 1;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.dresscode-note {
+  font-style: italic;
+  color: #8b5a5a;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px dashed #e2a5b2;
+  font-size: 0.9rem;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* Responsive para Dress Code */
+@media (max-width: 600px) {
+  .dresscode-section {
+    padding: 20px;
+    margin: 20px 15px;
+  }
+
+  .dresscode-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .codigo-vestimenta {
+    font-size: 1.1rem;
+  }
+
+  .dresscode-row {
+    flex-direction: column;
+  }
+
+  .dresscode-label {
+    margin-bottom: 5px;
   }
 }

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 
+
 interface DatosBoda {
   nombres?: string;
   fecha?: string;
@@ -10,12 +11,21 @@ interface DatosBoda {
   galeria?: string[];
   ubicacionUrl?: string;
   whatsapp?: string;
-   recepcion?: {
-    lugar: string;
-    fechaHora: string;
-    direccion: string;
-    mapaUrl: string;
-    calendarioUrl: string;
+    eventos?: {
+    ceremonia?: {
+      lugar: string;
+      fechaHora: string;
+      direccion: string;
+      mapaUrl: string;
+      calendarioUrl?: string;
+    };
+    recepcion?: {
+      lugar: string;
+      fechaHora: string;
+      direccion: string;
+      mapaUrl: string;
+      calendarioUrl?: string;
+    };
   };
    padresPadrinos?: {
     titulo?: string;
@@ -24,7 +34,15 @@ interface DatosBoda {
     padresNovio?: { nombres: string; rol: string };
     padrinos?: { nombres: string; rol: string }[];
   };
-
+ dressCode?: {
+    titulo?: string;
+    codigo?: string;
+    recomendaciones?: {
+      mujeres?: string;
+      hombres?: string;
+      nota?: string;
+    };
+  };
 }
 
 
@@ -55,7 +73,7 @@ export class InvitacionComponent implements OnInit {
       next: (data) => {
         this.datos = data;
         this.galleryImages = (data.galeria || []).map(img =>
-          `assets/imgs/juan-y-paula/${img.replace('juan-y-paula/', '')}`
+              `assets/imgs/juan-y-paula/${img.replace('juan-y-paula/', '')}`
         );
         this.iniciarContador();
       },
