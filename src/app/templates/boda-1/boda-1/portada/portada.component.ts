@@ -13,7 +13,7 @@ import { isPlatformBrowser } from '@angular/common';
 export class PortadaComponent implements OnInit, OnDestroy {
   musicaReproduciendo = false;
   audio: HTMLAudioElement | null = null;
-  imagenFondo = 'assets/imgs/juan-y-paula/floral.png';
+  imagenFondo = '/assets/imgs/juan-y-paula/floral.png';
 
   constructor(
     private router: Router,

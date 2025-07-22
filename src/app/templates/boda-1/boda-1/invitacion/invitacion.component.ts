@@ -60,20 +60,21 @@ export class InvitacionComponent implements OnInit {
   minutesRemaining = 0;
   secondsRemaining = 0;
   galleryImages: string[] = [];
-  imagenFondo = 'assets/imgs/juan-y-paula/floral.png';
+  imagenFondo = '/assets/imgs/juan-y-paula/floral.png';
 
  constructor(private http: HttpClient) {}
    ngOnInit(): void {
     this.cargarDatosInvitacion();
   }
 
+
  cargarDatosInvitacion(): void {
     const cliente = "juan-y-paula";
-    this.http.get<DatosBoda>(`assets/clientes/boda-1/${cliente}.json`).subscribe({
+    this.http.get<DatosBoda>(`/assets/clientes/boda-1/${cliente}.json`).subscribe({
       next: (data) => {
         this.datos = data;
         this.galleryImages = (data.galeria || []).map(img =>
-              `assets/imgs/juan-y-paula/${img.replace('juan-y-paula/', '')}`
+              `/assets/imgs/juan-y-paula/${img.replace('juan-y-paula/', '')}`
         );
         this.iniciarContador();
       },
@@ -93,9 +94,6 @@ export class InvitacionComponent implements OnInit {
       this.minutesRemaining = Math.max(0, Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
       this.secondsRemaining = Math.max(0, Math.floor((distance % (1000 * 60)) / 1000));
 
-      if (distance > 0) {
-        requestAnimationFrame(updateCountdown);
-      }
     };
 
     updateCountdown();
